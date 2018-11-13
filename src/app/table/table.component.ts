@@ -16,9 +16,9 @@ export class TableComponent implements OnInit{
     public tableData2: TableData;
     ngOnInit(){
         this.tableData1 = {
-            headerRow: [ 'ID', 'Name', 'Country', 'City', 'Salary'],
+            headerRow: [ 'ID', 'Name', 'Artist', 'Genre', 'Popularity'],
             dataRows: [
-                ['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
+                ['1', 'Bohemian Rapsody', 'Paul McCarney', 'Hip-Hop', '351'],
                 ['2', 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
                 ['3', 'Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
                 ['4', 'Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
