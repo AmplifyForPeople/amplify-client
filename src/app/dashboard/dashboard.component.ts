@@ -31,11 +31,11 @@ export class DashboardComponent implements OnInit{
           headerRow: [ 'ID', 'Name', 'Artist', 'Genre', 'Popularity'],
           dataRows: [
               ['1', 'Bohemian Rapsody', 'Paul McCarney', 'Hip-Hop', '351'],
-              ['2', 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
-              ['3', 'Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
-              ['4', 'Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
-              ['5', 'Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
-              ['6', 'Mason Porter', 'Chile', 'Gloucester', '$78,615']
+              ['2', 'Hotline Bling', 'Drake', 'More Life', '290'],
+              ['3', 'Father Stretch My Hands', 'Drake', 'Views', '288'],
+              ['4', 'Umbrella', 'Lady Gaga', 'Sgt. Pepper', '240'],
+              ['5', 'Crybaby', 'Lil Peep', 'Crybayb', '189'],
+              ['6', 'Cry me a River', 'Yung Beef', '27', '166']
           ]
       };
 
