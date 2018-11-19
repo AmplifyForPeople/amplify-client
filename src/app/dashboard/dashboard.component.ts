@@ -3,6 +3,11 @@ import * as Chartist from 'chartist';
 
 declare var $:any;
 
+declare interface TableData {
+  headerRow: string[];
+  dataRows: string[][];
+}
+
 @Component({
     selector: 'dashboard-cmp',
     moduleId: module.id,
@@ -10,7 +15,9 @@ declare var $:any;
 })
 
 export class DashboardComponent implements OnInit{
-    ngOnInit(){
+
+  public tableData1: TableData;
+  ngOnInit(){
         var dataSales = {
           labels: ['9:00AM', '12:00AM', '3:00PM', '6:00PM', '9:00PM', '12:00PM', '3:00AM', '6:00AM'],
           series: [
@@ -19,6 +26,18 @@ export class DashboardComponent implements OnInit{
             [23, 113, 67, 108, 190, 239, 307, 410, 410]
           ]
         };
+
+        this.tableData1 = {
+          headerRow: [ 'ID', 'Name', 'Artist', 'Genre', 'Popularity'],
+          dataRows: [
+              ['1', 'Bohemian Rapsody', 'Paul McCarney', 'Hip-Hop', '351'],
+              ['2', 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
+              ['3', 'Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
+              ['4', 'Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
+              ['5', 'Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
+              ['6', 'Mason Porter', 'Chile', 'Gloucester', '$78,615']
+          ]
+      };
 
         var optionsSales = {
           low: 0,
