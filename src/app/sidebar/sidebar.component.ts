@@ -10,6 +10,8 @@ export interface RouteInfo {
 }
 
 export const ROUTES: RouteInfo[] = [
+    { path: 'login', title: 'Login',  icon: 'ti-angle-right ', class: '' },
+    { path: 'register', title: 'Register',  icon: 'ti-angle-right ', class: '' },
     { path: 'dashboard', title: 'Dashboard',  icon: 'ti-panel', class: '' },
     //{ path: 'table', title: 'Playlists',  icon:'ti-view-list-alt', class: '' },
     { path: 'maps', title: 'Amplify Sites',  icon:'ti-map', class: '' },

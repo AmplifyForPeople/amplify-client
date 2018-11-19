@@ -9,6 +9,8 @@ import { MapsComponent }   from './maps/maps.component';
 import { NotificationsComponent }   from './notifications/notifications.component';
 import { UpgradeComponent }   from './upgrade/upgrade.component';
 import { TermsComponent } from './terms/terms.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 export const AppRoutes: Routes = [
     {
@@ -27,6 +29,14 @@ export const AppRoutes: Routes = [
     {
         path: 'terms',
         component: TermsComponent
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent
     },
     {
         path: 'table',
