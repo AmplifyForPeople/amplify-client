@@ -15,7 +15,7 @@ import { RegisterComponent } from './register/register.component';
 export const AppRoutes: Routes = [
     {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'login',
         pathMatch: 'full',
     },
     {

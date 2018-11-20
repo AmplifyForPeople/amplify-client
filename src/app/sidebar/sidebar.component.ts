@@ -32,7 +32,7 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
     public menuItems: any[];
     ngOnInit() {
-        this.menuItems = ROUTES.filter(r => r.path != 'terms');
+        this.menuItems = ROUTES.filter(r => r.path != 'terms').filter(r => r.path !='login').filter(r => r.path !='register');
     }
     isNotMobileMenu(){
         if($(window).width() > 991){
