@@ -20,6 +20,7 @@ export const ROUTES: RouteInfo[] = [
     { path: 'icons', title: 'Icons',  icon:'ti-pencil-alt2', class: '' },
     //{ path: 'notifications', title: 'Notifications',  icon:'ti-bell', class: '' },
     { path: 'upgrade', title: 'Upgrade to PRO',  icon:'ti-export', class: 'active-pro' },
+    { path: 'terms', title: 'Terms & Conditions',  icon:'', class: '' },   
 ];
 
 @Component({
