@@ -1,81 +1,94 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-4 col-sm-6">
-            <div class="card">
-                <div class="content">
-                    <div class="row">
-                        <div class="col-xs-5">
-                            <div class="icon-big icon-warning text-center">
-                                <i class="ti-music"></i>
+<div class="wrapper">
+
+<div class="sidebar" data-background-color="white" data-active-color="danger">
+
+    <sidebar-cmp></sidebar-cmp>
+</div>
+
+<div class="main-panel">
+    <navbar-cmp></navbar-cmp>
+    <div class="content">
+
+
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="card">
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <div class="icon-big icon-warning text-center">
+                                        <i class="ti-music"></i>
+                                    </div>
+                                </div>
+                                <div class="col-xs-7">
+                                    <div class="numbers">
+                                        <p>Ghost Town</p>
+                                        Kanye
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xs-7">
-                            <div class="numbers">
-                                <p>Ghost Town</p>
-                                Kanye
+                            <div class="footer">
+                                <hr />
+                                <div class="stats">
+                                    <i class="ti-control-play"></i> Currently playing
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="footer">
-                        <hr />
-                        <div class="stats">
-                            <i class="ti-control-play"></i> Currently playing
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="card">
-                <div class="content">
-                    <div class="row">
-                        <div class="col-xs-5">
-                            <div class="icon-big icon-success text-center">
-                                <i class="ti-music-alt"></i>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="card">
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <div class="icon-big icon-success text-center">
+                                        <i class="ti-music-alt"></i>
+                                    </div>
+                                </div>
+                                <div class="col-xs-7">
+                                    <div class="numbers">
+                                        <p>Dear Mama</p>
+                                        2pac
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xs-7">
-                            <div class="numbers">
-                                <p>Dear Mama</p>
-                                2pac
+                            <div class="footer">
+                                <hr />
+                                <div class="stats">
+                                    <i class="ti-control-play"></i> Next song
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="footer">
-                        <hr />
-                        <div class="stats">
-                            <i class="ti-control-play"></i> Next song
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-            <div class="card">
-                <div class="content">
-                    <div class="row">
-                        <div class="col-xs-5">
-                            <div class="icon-big icon-danger text-center">
-                                <i class="ti-pulse"></i>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="card">
+                        <div class="content">
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <div class="icon-big icon-danger text-center">
+                                        <i class="ti-pulse"></i>
+                                    </div>
+                                </div>
+                                <div class="col-xs-7">
+                                    <div class="numbers">
+                                        <p>Active Users</p>
+                                        231
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xs-7">
-                            <div class="numbers">
-                                <p>Active Users</p>
-                                231
+                            <div class="footer">
+                                <hr />
+                                <div class="stats">
+                                    <i class="ti-timer"></i> In the last hour
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="footer">
-                        <hr />
-                        <div class="stats">
-                            <i class="ti-timer"></i> In the last hour
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!--<div class="col-lg-3 col-sm-6">
+                <!--<div class="col-lg-3 col-sm-6">
             <div class="card">
                 <div class="content">
                     <div class="row">
@@ -100,99 +113,102 @@
                 </div>
             </div>
         </div>-->
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">Current PlayList</h4>
-                    <p class="category">List of song currently playing on this site</p>
-                </div>
-                <div class="content table-responsive table-full-width">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let row of tableData1.dataRows">
-                                <td *ngFor="let cell of row">{{cell}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Current PlayList</h4>
+                            <p class="category">List of song currently playing on this site</p>
+                        </div>
+                        <div class="content table-responsive table-full-width">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let row of tableData1.dataRows">
+                                        <td *ngFor="let cell of row">{{cell}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">Genre Statistics</h4>
-                    <p class="category">Last 24h Performance</p>
-                </div>
-                <div class="content">
-                    <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
-
-                    <div class="footer">
-                        <div class="chart-legend">
-                            <i class="fa fa-circle text-info"></i> Urban
-                            <i class="fa fa-circle text-danger"></i> Indie
-                            <i class="fa fa-circle text-warning"></i> Rock
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Genre Statistics</h4>
+                            <p class="category">Last 24h Performance</p>
                         </div>
-                        <hr>
-                        <div class="stats">
-                            <i class="ti-timer"></i> Updated 10 minutes ago
+                        <div class="content">
+                            <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+
+                            <div class="footer">
+                                <div class="chart-legend">
+                                    <i class="fa fa-circle text-info"></i> Urban
+                                    <i class="fa fa-circle text-danger"></i> Indie
+                                    <i class="fa fa-circle text-warning"></i> Rock
+                                </div>
+                                <hr>
+                                <div class="stats">
+                                    <i class="ti-timer"></i> Updated 10 minutes ago
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card ">
+                        <div class="header">
+                            <h4 class="title">Genre Comparison</h4>
+                            <p class="category">Genre grow and comparison</p>
+                        </div>
+                        <div class="content">
+                            <div id="chartActivity" class="ct-chart"></div>
+
+                            <div class="footer">
+                                <div class="chart-legend">
+                                    <i class="fa fa-circle text-info"></i> Rock
+                                    <i class="fa fa-circle text-warning"></i> Pop
+                                </div>
+                                <hr>
+                                <div class="stats">
+                                    <i class="ti-check"></i> Data information certified
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h4 class="title">Users Performance</h4>
+                            <p class="category">24 Hours performance</p>
+                        </div>
+                        <div class="content">
+                            <div id="chartHours" class="ct-chart"></div>
+                            <div class="footer">
+                                <div class="chart-legend">
+                                    <i class="fa fa-circle text-info"></i> Loyal user
+                                    <i class="fa fa-circle text-danger"></i> Usual user
+                                    <i class="fa fa-circle text-warning"></i> New users
+                                </div>
+                                <hr>
+                                <div class="stats">
+                                    <i class="ti-reload"></i> Updated 3 minutes ago
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card ">
-                <div class="header">
-                    <h4 class="title">Genre Comparison</h4>
-                    <p class="category">Genre grow and comparison</p>
-                </div>
-                <div class="content">
-                    <div id="chartActivity" class="ct-chart"></div>
-
-                    <div class="footer">
-                        <div class="chart-legend">
-                            <i class="fa fa-circle text-info"></i> Rock
-                            <i class="fa fa-circle text-warning"></i> Pop
-                        </div>
-                        <hr>
-                        <div class="stats">
-                            <i class="ti-check"></i> Data information certified
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">Users Performance</h4>
-                    <p class="category">24 Hours performance</p>
-                </div>
-                <div class="content">
-                    <div id="chartHours" class="ct-chart"></div>
-                    <div class="footer">
-                        <div class="chart-legend">
-                            <i class="fa fa-circle text-info"></i> Loyal user
-                            <i class="fa fa-circle text-danger"></i> Usual user
-                            <i class="fa fa-circle text-warning"></i> New users
-                        </div>
-                        <hr>
-                        <div class="stats">
-                            <i class="ti-reload"></i> Updated 3 minutes ago
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+</div>
 </div>

@@ -20,6 +20,7 @@ import { UpgradeComponent }   from './upgrade/upgrade.component';
 import { TermsComponent } from './terms/terms.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { DemoService } from './shared/services/demo.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { RegisterComponent } from './register/register.component';
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'})
 
   ],
-  providers: [],
+  providers: [DemoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

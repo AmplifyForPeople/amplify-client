@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DemoService } from './shared/services/demo.service';
 
 declare var $:any;
 
@@ -9,5 +10,12 @@ declare var $:any;
 })
 
 export class AppComponent{
+  public FLAG:boolean;
+  constructor(public demoService: DemoService) {
+   this.FLAG = demoService.FLAG; 
+  }
+getFlag() {
+  return this.demoService.FLAG;
+}
 
 }
