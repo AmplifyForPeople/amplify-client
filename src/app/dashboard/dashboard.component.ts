@@ -38,23 +38,26 @@ export class DashboardComponent implements OnInit {
 
   currentInPlayList: Song;
 
+  getData;
+
   constructor(private service: EstablishmentService) {
   }
 
   async ngOnInit() {
-    //const json: String = '{"genres":[{"id":2,"name":"Pop"},{"id":1,"name":"Rock"}],"id":1,"imatge":"https://media-cdn.tripadvisor.com/media/photo-s/02/c0/4e/b1/the-establishment.jpg","info":"1","name":"aaaa","playlists":[{"current":false,"id":0,"song":{"author":"bbb","id":2,"image":"http://images.coveralia.com/audio/a/Andres_Cepeda-Cancion_Rota-Frontal.jpg","name":"bbb","votes":0}},{"current":true,"id":0,"song":{"author":"aaa","id":1,"image":"http://images.coveralia.com/audio/a/Andres_Cepeda-Cancion_Rota-Frontal.jpg","name":"aaaa","votes":0}}],"position_lat":1.0,"position_lng":1.0}'
 
-    const getData = await this.service.getData();
-    this.local.fromJSON(JSON.stringify(getData));
+    this.getData = await this.service.getData();
+    this.local.fromJSON(JSON.stringify(this.getData));
 
     this.actualSong = this.local.getCurrent().getName();
     this.actualAuthor = this.local.getCurrent().getAuthor();
 
     this.currentInPlayList = this.local.getCurrent();
 
-    this.activeUser = 2;
+    this.activeUser = this.getData.users;
 
     this.setPlayList();
+
+
 
 
     var dataSales = {
@@ -162,12 +165,17 @@ export class DashboardComponent implements OnInit {
     }
 
     this.tableData1 = {
-      headerRow: ['ID', 'Name', 'Artist', 'Genre', 'Popularity'],
+      headerRow: ['ID', 'Name', 'Artist', 'Album', 'Popularity'],
       dataRows: rows
     };
   }
 
   async onClickMe() {
+    this.getData = await this.service.postData(this.currentInPlayList.getidPlaylist().toString());
+    console.log(this.getData);
+    window.location.reload();
+  }
+  /*async onClickMe() {
     const nextCurrent = this.local.getNoCurrent()[0];
     if (nextCurrent === undefined) {
       console.log('Last song');
@@ -188,5 +196,5 @@ export class DashboardComponent implements OnInit {
       this.setPlayList();
 
     }
-  }
+  }*/
 }

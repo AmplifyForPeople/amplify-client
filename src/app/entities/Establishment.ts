@@ -1,6 +1,11 @@
 import { Song } from '../entities/Song';
 
-
+class PlayList {
+    id: number;
+    current: boolean;
+    song: Song;
+    constructor() { }
+}
 export class Establishment {
 
     id: number;
@@ -27,10 +32,18 @@ export class Establishment {
     }
 
     toJSON() {
+        const playlists = [];
+        for (let i = 0; i < this.playlists.length; i++) {
+            const id = this.playlists[i].id;
+            const current = this.playlists[i].current;
+            const song = new Song(this.playlists[i].getId(), this.playlists[i].getName(),
+                this.playlists[i].getAlbum(), this.playlists[i].getAuthor(),
+                this.playlists[i].getVotes(), this.playlists[i].getImatge());
+            playlists.push(JSON.stringify({ id: id, current: current, song: song}));
+        }
         return JSON.stringify({
-            id: this.id, name: this.name, info: this.info,
-            imatge: this.imatge, position_lat: this.position_lat, position_lng: this.position_lng,
-            playlists: this.playlists, userinestablishments: this.userinestablishments, genres: this.genres
+            genres: this.genres, id: this.id, imatge: this.imatge, info: this.info, name: this.name,
+            playlists: playlists, position_lat: this.position_lat, position_lng: this.position_lng
         });
     }
 
