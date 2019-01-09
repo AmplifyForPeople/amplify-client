@@ -20,6 +20,8 @@ declare interface TableData {
   templateUrl: 'dashboard.component.html'
 })
 
+
+
 export class DashboardComponent implements OnInit {
 
   public tableData1: TableData;
@@ -35,7 +37,6 @@ export class DashboardComponent implements OnInit {
   local = new Establishment();
 
   currentInPlayList: Song;
-  nextInPlayList: Song;
 
   constructor(private service: EstablishmentService) {
   }
@@ -49,25 +50,11 @@ export class DashboardComponent implements OnInit {
     this.actualSong = this.local.getCurrent().getName();
     this.actualAuthor = this.local.getCurrent().getAuthor();
 
+    this.currentInPlayList = this.local.getCurrent();
+
     this.activeUser = 2;
 
-    const songs: Array<Song> = this.local.getNoCurrent();
-    const rows = [];
-
-    for (let i = 0; i < songs.length; i++) {
-      const element = [];
-      element.push(songs[i].id);
-      element.push(songs[i].name);
-      element.push(songs[i].author);
-      element.push(songs[i].album);
-      element.push(songs[i].votes);
-      rows.push(element);
-    }
-
-    this.tableData1 = {
-      headerRow: ['ID', 'Name', 'Artist', 'Genre', 'Popularity'],
-      dataRows: rows
-    };
+    this.setPlayList();
 
 
     var dataSales = {
@@ -159,5 +146,47 @@ export class DashboardComponent implements OnInit {
       labels: ['62%', '32%', '6%'],
       series: [62, 32, 6]
     });
+  }
+
+  setPlayList() {
+    const songs: Array<Song> = this.local.getNoCurrent();
+    const rows = [];
+    for (let i = 0; i < songs.length; i++) {
+      const element = [];
+      element.push(songs[i].id);
+      element.push(songs[i].name);
+      element.push(songs[i].author);
+      element.push(songs[i].album);
+      element.push(songs[i].votes);
+      rows.push(element);
+    }
+
+    this.tableData1 = {
+      headerRow: ['ID', 'Name', 'Artist', 'Genre', 'Popularity'],
+      dataRows: rows
+    };
+  }
+
+  async onClickMe() {
+    const nextCurrent = this.local.getNoCurrent()[0];
+    if (nextCurrent === undefined) {
+      console.log('Last song');
+    } else {
+      const index: number = this.local.playlists.indexOf(this.currentInPlayList);
+      if (index !== -1) {
+        this.local.playlists.splice(index, 1);
+      }
+
+
+      this.currentInPlayList.current = false;
+      nextCurrent.current = true;
+      this.currentInPlayList = nextCurrent;
+
+      this.actualSong = this.currentInPlayList.getName();
+      this.actualAuthor = this.currentInPlayList.getAuthor();
+
+      this.setPlayList();
+
+    }
   }
 }

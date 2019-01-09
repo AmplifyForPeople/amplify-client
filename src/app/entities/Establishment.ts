@@ -100,7 +100,6 @@ export class Establishment {
     getNoCurrent() {
         const songs: Array<Song> = [];
         for (let i = 0; i < this.playlists.length; i++) {
-            console.log(this.playlists[i].getCurrent());
             if (!this.playlists[i].getCurrent()) {
                 songs.push(this.playlists[i]);
             }
