@@ -90,7 +90,7 @@ export class Establishment {
 
     getCurrent() {
         for (let i = 0; i < this.playlists.length; i++) {
-            if (this.playlists[i].current === true) {
+            if (this.playlists[i].getCurrent()) {
                 return this.playlists[i];
 
             }
@@ -100,8 +100,9 @@ export class Establishment {
     getNoCurrent() {
         const songs: Array<Song> = [];
         for (let i = 0; i < this.playlists.length; i++) {
-            if (this.playlists[i].current !== true) {
-                songs.push(this.playlists[0]);
+            console.log(this.playlists[i].getCurrent());
+            if (!this.playlists[i].getCurrent()) {
+                songs.push(this.playlists[i]);
             }
         }
         return songs;

@@ -10,7 +10,7 @@ export class EstablishmentService {
         let data;
         const url = 'http://brain.3utilities.com/AmplifyWeb/rest/establishments/1';
 
-        const header = new HttpHeaders({ 'Accept': 'application/json' });
+        const header = new HttpHeaders({ 'Accept': 'application/json','Access-Control-Allow-Origin': '*' });
         // header.append('Access-Control-Allow-Methods', 'GET, POST');
         // header.append('Access-Control-Allow-Origin', '*');
 

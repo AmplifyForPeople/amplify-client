@@ -65,7 +65,15 @@ export class Song {
 
     setVotes(votes) { this.votes = votes; }
 
-    getimatge() { return this.imatge; }
+    getImatge() { return this.imatge; }
 
-    setimatge(imatge) { this.imatge = imatge; }
+    setImatge(imatge) { this.imatge = imatge; }
+
+    getCurrent() { return this.current; }
+
+    setCurrent(current) { this.current = current; }
+
+    getidPlaylist() { return this.idPlaylist; }
+
+    setidPlaylist(idPlaylist) { this.idPlaylist = idPlaylist; }
 }
