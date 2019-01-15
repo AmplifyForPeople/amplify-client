@@ -183,7 +183,7 @@ export class DashboardComponent implements OnInit {
 
     this.currentInPlayList = this.local.getCurrent();
 
-    this.activeUser = this.getData.users;
+    this.activeUser = this.getData.user_in_e;
   }
 
 

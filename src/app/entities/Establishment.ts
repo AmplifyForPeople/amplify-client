@@ -16,7 +16,7 @@ export class Establishment {
     imatge: String;
 
     playlists: Array<Song> = [];
-    userinestablishments;
+    user_in_e;
     genres;
 
     constructor() { }
@@ -62,7 +62,7 @@ export class Establishment {
             this.playlists.push(tmp);
         }
         //this.playlists = json.playlists;
-        this.userinestablishments = json.userinestablishments;
+        this.user_in_e = json.user_in_e;
         this.genres = json.genres;
     }
 
@@ -94,9 +94,9 @@ export class Establishment {
 
     setPlaylists(playlists) { this.playlists = playlists; }
 
-    getUserinestablishments() { return this.userinestablishments; }
+    getuser_in_e() { return this.user_in_e; }
 
-    setUserinestablishments(userinestablishments) { this.userinestablishments = userinestablishments; }
+    setuser_in_e(user_in_e) { this.user_in_e = user_in_e; }
 
     getGenres() { return this.genres; }
 
