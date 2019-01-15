@@ -1,4 +1,4 @@
-<div class="container-fluid" style="margin-top: 5%;">
+<div class="container-fluid" style="margin-top: 5%;" style="background-color: #141414">
   <div class="col-lg-4 col-md-2"></div>
   <div class="col-lg-4 col-md-5">
     <form class="form-signin" >
@@ -19,7 +19,7 @@
 
       <div class="form-label-group">
         <label for="inputEmail">Email address</label>
-
+        <font color="white">
         <input
           type="email"
           id="inputEmail"
@@ -28,6 +28,7 @@
           required
           autofocus
         />
+      </font>
       </div>
 
       <div class="form-label-group">
@@ -47,7 +48,7 @@
         </label>
       </div>
       <button (click)="flag()" class="btn btn-lg btn-primary btn-block" type="submit">
-       <a href='/dashboard'> Sign in</a>
+       Sign in
       </button>
       <div style="margin-top:3%; margin-bottom: 10%">
           <span>Don't have account ?</span><a href='/register'> Register</a>

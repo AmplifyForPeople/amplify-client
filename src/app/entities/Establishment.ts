@@ -38,7 +38,7 @@ export class Establishment {
             const current = this.playlists[i].current;
             const song = new Song(this.playlists[i].getId(), this.playlists[i].getName(),
                 this.playlists[i].getAlbum(), this.playlists[i].getAuthor(),
-                this.playlists[i].getVotes(), this.playlists[i].getImatge());
+                this.playlists[i].getVotes(), this.playlists[i].getImage());
             playlists.push(JSON.stringify({ id: id, current: current, song: song}));
         }
         return JSON.stringify({
@@ -55,6 +55,7 @@ export class Establishment {
         this.imatge = json.imatge;
         this.position_lat = json.position_lat;
         this.position_lng = json.position_lng;
+        this.playlists = [];
         for (let i = 0; i < json.playlists.length; i++) {
             const tmp = new Song(1, '', '', '', '', '');
             tmp.fromJSON(json.playlists[i]);

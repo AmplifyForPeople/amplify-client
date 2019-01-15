@@ -25,6 +25,7 @@ declare interface TableData {
 export class DashboardComponent implements OnInit {
 
   public tableData1: TableData;
+  public tableImage;
 
   actualSong: String;
   actualAuthor: String;
@@ -38,27 +39,18 @@ export class DashboardComponent implements OnInit {
 
   currentInPlayList: Song;
 
+  audio: any= new Audio();
   getData;
 
   constructor(private service: EstablishmentService) {
   }
 
   async ngOnInit() {
+    await this.setVariables();
 
-    this.getData = await this.service.getData();
-    this.local.fromJSON(JSON.stringify(this.getData));
+    this.setPlayer();
 
-    this.actualSong = this.local.getCurrent().getName();
-    this.actualAuthor = this.local.getCurrent().getAuthor();
-
-    this.currentInPlayList = this.local.getCurrent();
-
-    this.activeUser = this.getData.users;
-
-    this.setPlayList();
-
-
-
+   this.setPlayList();
 
     var dataSales = {
       labels: ['9:00AM', '12:00AM', '3:00PM', '6:00PM', '9:00PM', '12:00PM', '3:00AM', '6:00AM'],
@@ -154,47 +146,76 @@ export class DashboardComponent implements OnInit {
   setPlayList() {
     const songs: Array<Song> = this.local.getNoCurrent();
     const rows = [];
+    this.tableImage = [];
     for (let i = 0; i < songs.length; i++) {
       const element = [];
       element.push(songs[i].id);
+      this.tableImage.push(songs[i].image);
       element.push(songs[i].name);
       element.push(songs[i].author);
       element.push(songs[i].album);
       element.push(songs[i].votes);
       rows.push(element);
     }
-
     this.tableData1 = {
-      headerRow: ['ID', 'Name', 'Artist', 'Album', 'Popularity'],
+      headerRow: ['Image', 'ID', 'Name', 'Artist', 'Album', 'Popularity'],
       dataRows: rows
     };
   }
 
-  async onClickMe() {
-    this.getData = await this.service.postData(this.currentInPlayList.getidPlaylist().toString());
-    console.log(this.getData);
-    window.location.reload();
+  setPlayer() {
+    this.audio.src =  this.currentInPlayList.url;
+    this.audio.load();
+    // const urlSong = this.currentInPlayList.url;
+    // const player = document.getElementById('myAudio');
+    // player.setAttribute('src', urlSong);
   }
-  /*async onClickMe() {
-    const nextCurrent = this.local.getNoCurrent()[0];
-    if (nextCurrent === undefined) {
-      console.log('Last song');
-    } else {
-      const index: number = this.local.playlists.indexOf(this.currentInPlayList);
-      if (index !== -1) {
-        this.local.playlists.splice(index, 1);
-      }
+
+  async setVariables() {
+    const player = document.getElementById('myAudio');
+
+    this.getData = await this.service.getData();
+
+    this.local.fromJSON(JSON.stringify(this.getData));
+
+    this.actualSong = this.local.getCurrent().getName();
+    this.actualAuthor = this.local.getCurrent().getAuthor();
+
+    this.currentInPlayList = this.local.getCurrent();
+
+    this.activeUser = this.getData.users;
+  }
 
 
-      this.currentInPlayList.current = false;
-      nextCurrent.current = true;
-      this.currentInPlayList = nextCurrent;
+  onPlayMe(){
+    this.audio.play();
+  }
 
-      this.actualSong = this.currentInPlayList.getName();
-      this.actualAuthor = this.currentInPlayList.getAuthor();
+  onPauseMe(){
+    this.audio.pause();
+  }
 
-      this.setPlayList();
+  async onClickMe() {
+    const id = this.currentInPlayList.getidPlaylist();
+    this.getData = await this.service.postData(id);
+    console.log(this.getData);
+    // window.location.reload();
 
-    }
-  }*/
+    this.getData = await this.service.getData();
+
+    this.local.fromJSON(JSON.stringify(this.getData));
+
+    this.actualSong = this.local.getCurrent().getName();
+    this.actualAuthor = this.local.getCurrent().getAuthor();
+
+    this.currentInPlayList = this.local.getCurrent();
+
+    this.activeUser = this.getData.users;
+
+    this.setPlayList();
+
+    this.setPlayer();
+
+
+  }
 }

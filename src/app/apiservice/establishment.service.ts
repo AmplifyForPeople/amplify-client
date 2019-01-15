@@ -10,7 +10,7 @@ export class EstablishmentService {
         let data;
         const url = 'http://brain.3utilities.com/AmplifyWeb/rest/establishments/1';
 
-        const header = new HttpHeaders({ 'Accept': 'application/json', 'Access-Control-Allow-Origin': '*' });
+        const header = new HttpHeaders({ 'Accept': 'application/json','Access-Control-Allow-Methods': 'GET, POST', 'Access-Control-Allow-Origin': '*', });
         // header.append('Access-Control-Allow-Methods', 'GET, POST');
         // header.append('Access-Control-Allow-Origin', '*');
 
@@ -22,22 +22,22 @@ export class EstablishmentService {
         });
     }
 
-    TryPost(data) {
-        const url = 'http://brain.3utilities.com/AmplifyWeb/rest/song/' + data;
-        const header = new HttpHeaders({ 'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' });
+    async TryPost(data) {
+        const url = 'http://brain.3utilities.com/AmplifyWeb/rest/songs/' + data;
+        const header = new HttpHeaders({ 'Accept': 'application/json','Access-Control-Allow-Methods': 'GET, POST', 'Access-Control-Allow-Origin': '*', });
+        console.log(data);
 
 
         return new Promise(resolve => {
-            this.http.post(url, { headers: header }).subscribe(val => { data = val; });
+            this.http.post(url, '', { headers: header }).subscribe(val => { data = val; });
             setTimeout(() => {
                 resolve(data);
             }, 2000);
         });
     }
 
-    async getData() {
-        const response = await this.TryConnect();
-        return response;
+    getData() {
+        return this.TryConnect();;
     }
 
     async postData(data) {

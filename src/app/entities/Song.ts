@@ -6,15 +6,16 @@ export class Song {
     album: String;
     author: String;
     votes: number;
-    imatge: String;
+    image: String;
+    url; String;
 
-    constructor(id, name, album, author, votes, imatge) {
+    constructor(id, name, album, author, votes, image) {
         this.id = id;
         this.name = name;
         this.album = album;
         this.author = author;
         this.votes = votes;
-        this.imatge = imatge;
+        this.image = image;
     }
 
     toString() {
@@ -22,14 +23,14 @@ export class Song {
             .concat(this.id.toString()).concat(', ')
             .concat(this.name.toString()).concat(', ')
             .concat(this.album.toString()).concat(', ')
-            .concat(this.imatge.toString()).concat(', ')
+            .concat(this.image.toString()).concat(', ')
             .concat(this.author.toString()).concat(']');
     }
 
     toJSON() {
         return JSON.stringify({
             id: this.id, name: this.name, album: this.album,
-            author: this.author, votes: this.votes, imatge: this.imatge
+            author: this.author, votes: this.votes, image: this.image, url: this.url
         });
     }
 
@@ -42,7 +43,8 @@ export class Song {
         this.album = json.song.album;
         this.author = json.song.author;
         this.votes = json.song.votes;
-        this.imatge = json.song.imatge;
+        this.image = json.song.image;
+        this.url = json.song.url;
     }
 
     getId() { return this.id; }
@@ -65,9 +67,9 @@ export class Song {
 
     setVotes(votes) { this.votes = votes; }
 
-    getImatge() { return this.imatge; }
+    getImage() { return this.image; }
 
-    setImatge(imatge) { this.imatge = imatge; }
+    setImage(image) { this.image = image; }
 
     getCurrent() { return this.current; }
 
