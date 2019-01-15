@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DemoService } from 'app/shared/services/demo.service';
+import { Router } from '@angular/router';
+
 
 @Component({
     selector: 'app-login',
@@ -7,20 +9,20 @@ import { DemoService } from 'app/shared/services/demo.service';
     templateUrl: 'login.component.html'
 })
 
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
 
-    public FLAG:boolean;
+    public FLAG: boolean;
 
-    constructor(public demoService: DemoService){
-        this.FLAG = demoService.FLAG; 
+    constructor(public demoService: DemoService,private router: Router) {
+        this.FLAG = demoService.FLAG;
     }
 
     ngOnInit() {
 
     }
- 
-    
+
     flag() {
         this.demoService.FLAG = true;
+        this.router.navigateByUrl('/dashboard');
     }
 }
